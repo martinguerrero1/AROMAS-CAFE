@@ -1,0 +1,10 @@
+.navbar-container {
+  background: transparent; /* permite que se vea la imagen global */
+  padding: 1rem 2rem;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}

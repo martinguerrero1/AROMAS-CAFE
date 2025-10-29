@@ -1,0 +1,85 @@
+.menu-container {
+  background: transparent; /* permite que se vea la imagen global */
+  padding: 2rem;
+  min-height: 100vh;
+  color: #D9C9B6; /* texto claro sobre fondo oscuro */
+}
+
+.menu-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #E79E4B; /* color acento */
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Accordion personalizado */
+.accordion-button {
+  background-color: rgba(90, 66, 63, 0.8); /* semitransparente sobre la imagen */
+  color: #F5F5F5; /* blanco roto */
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(122, 87, 79, 0.8); /* más claro al abrir */
+  color: #F5F5F5;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:hover {
+  background-color: rgba(107, 77, 68, 0.8);
+  color: #F5F5F5;
+}
+
+/* Body del accordion */
+.accordion-body {
+  background-color: rgba(75, 56, 50, 0.7); /* semitransparente sobre la imagen */
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Items dentro del accordion */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-item-info {
+  max-width: 70%;
+}
+
+.menu-item-info strong {
+  color: #E79E4B;
+  font-size: 1rem;
+}
+
+.menu-item-info p {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.9rem;
+  color: #D9C9B6;
+}
+
+.menu-item-price {
+  font-weight: bold;
+  color: #F5F5F5;
+  font-size: 0.95rem;
+  margin-left: 1rem;
+}
+
+/* Scroll suave para mobile */
+.accordion-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.accordion-body::-webkit-scrollbar-thumb {
+  background-color: #E79E4B;
+  border-radius: 3px;
+}
