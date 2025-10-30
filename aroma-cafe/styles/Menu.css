@@ -1,8 +1,6 @@
 .menu-container {
-  background: transparent; /* permite que se vea la imagen global */
   padding: 2rem;
   min-height: 100vh;
-  color: #D9C9B6; /* texto claro sobre fondo oscuro */
 }
 
 .menu-title {

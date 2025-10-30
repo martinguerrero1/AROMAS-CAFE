@@ -12,15 +12,15 @@ const Menu = () => {
           <Accordion.Item eventKey={index.toString()} key={index}>
             <Accordion.Header>{categoria.categoria}</Accordion.Header>
             <Accordion.Body>
-              {categoria.items.map((item, i) => (
-                <div className="menu-item" key={i}>
-                  <div className="menu-item-info">
-                    <strong>{item.nombre}</strong>
-                    <p>{item.descripcion}</p>
-                  </div>
-                  <div className="menu-item-price">{item.precio}</div>
+            {categoria.items.map((item, i) => (
+              <div className="menu-item" key={i}>
+                <div className="menu-item-info">
+                  <strong>{item.nombre}</strong>
+                  {item.descripcion && <p>{item.descripcion}</p>}
                 </div>
-              ))}
+                <div className="menu-item-price">{item.precio}</div>
+              </div>
+            ))}
             </Accordion.Body>
           </Accordion.Item>
         ))}

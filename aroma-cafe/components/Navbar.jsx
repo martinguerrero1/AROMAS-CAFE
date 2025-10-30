@@ -9,7 +9,7 @@ const NavbarComponent = () => {
       <Container className="d-flex justify-content-between align-items-center">
         <div className="navbar-title">Aroma's Cafe</div>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-          <FaInstagram size={24} color="white" />
+          <FaInstagram size={50} color="white" />
         </a>
       </Container>
     </div>
