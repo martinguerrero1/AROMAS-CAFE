@@ -10,7 +10,9 @@ const Menu = () => {
       <Accordion defaultActiveKey="0">
         {menuData.map((categoria, index) => (
           <Accordion.Item eventKey={index.toString()} key={index}>
-            <Accordion.Header>{categoria.categoria}</Accordion.Header>
+            <Accordion.Header>
+              <span className="accordion-header-text">{categoria.categoria.toUpperCase()}</span>
+            </Accordion.Header>
             <Accordion.Body>
             {categoria.items.map((item, i) => (
               <div className="menu-item" key={i}>

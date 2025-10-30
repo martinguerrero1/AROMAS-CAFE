@@ -1,83 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+:root{
+  --accent-beige: #DCC8A3;   /* nuevo acento para nombres */
+  --text-light: #F5F1EA;
+  --muted: rgba(245,241,234,0.85);
+  --panel-overlay: rgba(30, 20, 16, 0.45); /* capa suave sobre la imagen */
+  --panel-overlay-2: rgba(30,20,16,0.32);  /* variante más leve */
+  --separator: rgba(255,255,255,0.10);
+  --radius: 12px;
+}
+
+/* contenedor general */
 .menu-container {
   padding: 2rem;
   min-height: 100vh;
+  color: var(--muted);
 }
 
+/* título principal */
 .menu-title {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #E79E4B; /* color acento */
-  font-weight: bold;
-  font-family: 'Segoe UI', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-beige);
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Accordion personalizado */
+/* --------------------------------------------------
+   Estilos principales del accordion (simple & limpio)
+   Se usan las clases de Bootstrap pero sobreescribimos
+   para mantener transparencia y una capa leve.
+   -------------------------------------------------- */
+
+/* cada item del accordion como tarjeta suave */
+.accordion .accordion-item {
+  background: rgba(40, 30, 25, 0.45); /* fondo translúcido */
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px); /* efecto glass suave */
+  overflow: hidden;
+}
+
+/* el header clickable (trigger) como tarjeta semi-transparente */
+/* 🔹 Header del accordion siempre con transparencia */
 .accordion-button {
-  background-color: rgba(90, 66, 63, 0.8); /* semitransparente sobre la imagen */
-  color: #F5F5F5; /* blanco roto */
-  font-weight: 600;
-  font-size: 1.1rem;
+  background: rgba(68, 68, 68, 0.096) !important; /* mantiene transparencia constante */
+  color: var(--text-light);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  padding: 1.4rem 1.2rem;
+  transition: all 0.3s ease;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem;
+  text-align: center;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
-.accordion-button:not(.collapsed) {
-  background-color: rgba(122, 87, 79, 0.8); /* más claro al abrir */
-  color: #F5F5F5;
+/* decoradores: símbolos a los costados usando pseudo-elementos */
+.accordion-button > .accordion-header-text {
+  position: relative;
+  padding: 0 1rem;
 }
 
-.accordion-button:focus {
+/* Si no estás generando un span con la clase, lo puedes usar así:
+   <Accordion.Header><span className="accordion-header-text">• CAFÉ •</span></Accordion.Header>
+*/
+
+/* símbolos antes y after */
+.accordion-button > .accordion-header-text::before,
+.accordion-button > .accordion-header-text::after {
+  content: "◇";
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin: 0 0.6rem;
+  vertical-align: top;
+}
+
+.accordion-button::after {
+  flex-shrink: 0;
+  width: 1.1em;
+  height: 1.1em;
+  margin-left: 0 !important; /* elimina el margen que separaba la flecha */
+  filter: invert(1);
+  transform: scale(1.3);
+  transition: transform 0.2s ease;
+  position: relative;
+  top: 1px; /* leve ajuste vertical */
+}
+
+/* cuando está abierto, rota la flecha */
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg) scale(1.3);
+}
+
+/* quita el borde/foco azul predeterminado de bootstrap */
+.accordion-button:focus,
+.accordion-button:active,
+.accordion-button:focus-visible {
   box-shadow: none;
+  outline: none;
 }
 
-.accordion-button:hover {
-  background-color: rgba(107, 77, 68, 0.8);
-  color: #F5F5F5;
+/* hover sutil (sin escala notable, solo aclarar levemente) */
+.accordion-button:hover,
+.accordion-button:not(.collapsed) {
+  background: rgba(60, 45, 35, 0.55); /* un poco más oscuro al abrir o pasar el mouse */
+  color: #FFF;
 }
 
-/* Body del accordion */
+/* --------------------------------------------------
+   Cuerpo del accordion (items)
+   - fondo semitransparente, rounded, padding
+   -------------------------------------------------- */
 .accordion-body {
-  background-color: rgba(75, 56, 50, 0.7); /* semitransparente sobre la imagen */
-  padding: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10,8,6,0.18); /* muy leve capa para separar del fondo */
+  border-radius: 10px;
+  margin-top: 0.8rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(255,255,255,0.04);
 }
 
-/* Items dentro del accordion */
+/* cada item del menú (fila) */
 .menu-item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 0;
 }
 
+/* separador entre productos dentro del body (ligero) */
+.menu-item + .menu-item {
+  border-top: 1px solid var(--separator);
+  padding-top: 0.7rem;
+}
+
+/* info del producto (nombre + descripcion) */
 .menu-item-info {
-  max-width: 70%;
+  max-width: 72%;
 }
 
 .menu-item-info strong {
-  color: #E79E4B;
+  color: var(--text-light);
   font-size: 1rem;
+  display: block;
+  margin-bottom: 0.2rem;
 }
 
+/* descripción más tenue */
 .menu-item-info p {
-  margin: 0.2rem 0 0 0;
+  margin: 0;
   font-size: 0.9rem;
-  color: #D9C9B6;
+  color: rgba(245,241,234,0.86);
+  opacity: 0.95;
+  line-height: 1.2;
 }
 
+/* precio alineado a la derecha, contraste claro */
 .menu-item-price {
-  font-weight: bold;
-  color: #F5F5F5;
-  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-beige);
+  font-size: 0.98rem;
+  text-align: right;
+  white-space: nowrap;
   margin-left: 1rem;
 }
 
-/* Scroll suave para mobile */
+/* scrollbar pequeño en mobile opcional */
 .accordion-body::-webkit-scrollbar {
+  height: 6px;
   width: 6px;
 }
-
 .accordion-body::-webkit-scrollbar-thumb {
-  background-color: #E79E4B;
-  border-radius: 3px;
+  background: rgba(220,200,160,0.6);
+  border-radius: 4px;
+}
+
+/* utilidad responsive: reducir paddings en pantallas pequeñas */
+@media (max-width: 576px) {
+  .accordion-button {
+    padding: 0.8rem 0.6rem;
+    font-size: 1rem;
+  }
+  .menu-item-info {
+    max-width: 65%;
+  }
+  .menu-item-price {
+    font-size: 0.95rem;
+  }
+}
+
+.accordion .accordion-item {
+  background: rgba(40, 30, 25, 0.45);
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(2px); /* opcional, da efecto de vidrio suave */
 }
