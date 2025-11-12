@@ -13,8 +13,6 @@
 /* contenedor general */
 .menu-container {
   padding: 2rem;
-  min-height: 100vh;
-  color: var(--muted);
 }
 
 /* título principal */
