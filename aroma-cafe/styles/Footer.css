@@ -37,7 +37,6 @@
 
 .footer-main a:hover svg {
   transform: scale(1.15);
-  color: #ff8800;
 }
 
 .footer-contact,
@@ -60,4 +59,12 @@
   padding: 1.2rem 0;
   font-size: 0.9rem;
   width: 100%;   /* asegura ancho total */
+}
+
+.ig-icon2{
+  filter: brightness(0) invert(1);
+}
+.ig-icon2:hover{
+  filter: none;
+  scale: 1.15;
 }

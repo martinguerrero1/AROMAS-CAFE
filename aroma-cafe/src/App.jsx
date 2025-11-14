@@ -3,6 +3,7 @@ import NavbarComponent from '../components/Navbar';
 import Hero from '../components/Hero';
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
+import BotonWpp from "../components/BotonWpp";
 import '../styles/App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
       {/* Footer independiente */}
       <Footer />
+      <BotonWpp />
     </>
   );
 }

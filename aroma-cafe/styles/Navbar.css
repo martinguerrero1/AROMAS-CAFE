@@ -14,11 +14,12 @@
 .ig-icon {
   color: white;
   transition: transform 0.4s ease, color 0.4s ease;
+  filter: brightness(0) invert(1);
 }
 
 /* Colores gradiente “Instagram” (truco usando drop-shadow) */
 .ig-icon:hover {
   transform: rotate(360deg) scale(1.15);
-  color: #ff8800;
+  filter: none;
 }
 
