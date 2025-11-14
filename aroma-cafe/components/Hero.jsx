@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/Hero.css';
 import icono from '../src/assets/icono.png';
-import fondo from '../src/assets/fondo.png';
 
 const Hero = () => {
   return (

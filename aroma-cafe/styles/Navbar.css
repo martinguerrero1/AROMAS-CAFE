@@ -1,20 +1,24 @@
-.navbar-container { 
-  background: linear-gradient(
-    rgba(126, 126, 126, 0.39),
-    rgba(0, 0, 0, 0)
-  );
-  transition: background 0.3s ease;
+.navbar-container {
   padding: 1rem 0;
 }
 
 .navbar-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 4px;
   color: white;
+  font-weight: bold;
   font-family: 'Dancing Script', cursive;
-  font-weight: 700;
-  font-size: 3.4rem;
-  color: #f4e9dc;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  padding-left: 5px;
 }
+
+.ig-icon {
+  color: white;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* Colores gradiente “Instagram” (truco usando drop-shadow) */
+.ig-icon:hover {
+  transform: rotate(360deg) scale(1.15);
+  color: #ff8800;
+}
+

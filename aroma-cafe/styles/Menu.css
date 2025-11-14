@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wdth,wght@0,50..125,100..900;1,50..125,100..900&display=swap');
 
 :root{
   --accent-beige: #DCC8A3;   /* nuevo acento para nombres */
-  --text-light: #F5F1EA;
+  --text-light: #fffcf7;
   --muted: rgba(245,241,234,0.85);
-  --panel-overlay: rgba(30, 20, 16, 0.45); /* capa suave sobre la imagen */
-  --panel-overlay-2: rgba(30,20,16,0.32);  /* variante más leve */
   --separator: rgba(255,255,255,0.10);
   --radius: 12px;
 }
@@ -18,11 +17,11 @@
 /* título principal */
 .menu-title {
   text-align: center;
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  color: var(--accent-beige);
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-family: 'Saira', sans-serif;
+  font-weight: 400;
 }
 
 /* --------------------------------------------------
@@ -31,48 +30,27 @@
    para mantener transparencia y una capa leve.
    -------------------------------------------------- */
 
-/* cada item del accordion como tarjeta suave */
-.accordion .accordion-item {
-  background: rgba(40, 30, 25, 0.45); /* fondo translúcido */
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(3px); /* efecto glass suave */
-  overflow: hidden;
+/* trasnparente total */
+.accordion,
+.accordion-item,
+.accordion-button,
+.accordion-button:not(.collapsed),
+.accordion-body {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
-/* el header clickable (trigger) como tarjeta semi-transparente */
-/* 🔹 Header del accordion siempre con transparencia */
+/* Header del accordion */
 .accordion-button {
-  background: rgba(68, 68, 68, 0.096) !important; /* mantiene transparencia constante */
-  color: var(--text-light);
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  border-radius: 10px;
-  padding: 1.4rem 1.2rem;
-  transition: all 0.3s ease;
+  text-align: center;
+  gap: 0.6rem;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 0.6rem;
-  text-align: center;
-  background-image: none !important;
-  box-shadow: none !important;
 }
 
-/* decoradores: símbolos a los costados usando pseudo-elementos */
-.accordion-button > .accordion-header-text {
-  position: relative;
-  padding: 0 1rem;
-}
-
-/* Si no estás generando un span con la clase, lo puedes usar así:
-   <Accordion.Header><span className="accordion-header-text">• CAFÉ •</span></Accordion.Header>
-*/
-
-/* símbolos antes y after */
+/* símbolos antes y despues */
 .accordion-button > .accordion-header-text::before,
 .accordion-button > .accordion-header-text::after {
   content: "◇";
@@ -82,42 +60,29 @@
   vertical-align: top;
 }
 
-.accordion-button::after {
-  flex-shrink: 0;
-  width: 1.1em;
-  height: 1.1em;
-  margin-left: 0 !important; /* elimina el margen que separaba la flecha */
-  filter: invert(1);
-  transform: scale(1.3);
-  transition: transform 0.2s ease;
-  position: relative;
-  top: 1px; /* leve ajuste vertical */
-}
-
-/* cuando está abierto, rota la flecha */
+.accordion-button::after,
 .accordion-button:not(.collapsed)::after {
-  transform: rotate(180deg) scale(1.3);
+  filter: invert(1) brightness(2); /* Hace que se vea blanca */
+  margin-left: 0 !important; /* elimina el margen que separaba la flecha */
 }
 
-/* quita el borde/foco azul predeterminado de bootstrap */
-.accordion-button:focus,
-.accordion-button:active,
-.accordion-button:focus-visible {
-  box-shadow: none;
-  outline: none;
-}
 
-/* hover sutil (sin escala notable, solo aclarar levemente) */
-.accordion-button:hover,
-.accordion-button:not(.collapsed) {
-  background: rgba(60, 45, 35, 0.55); /* un poco más oscuro al abrir o pasar el mouse */
-  color: #FFF;
+.accordion-header-text {
+  color: var(--text-light);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
 }
 
 /* --------------------------------------------------
    Cuerpo del accordion (items)
    - fondo semitransparente, rounded, padding
    -------------------------------------------------- */
+.separador{
+  color: white;
+  border-width: 3px;
+}
+
 .accordion-body {
   background: rgba(10,8,6,0.18); /* muy leve capa para separar del fondo */
   border-radius: 10px;
@@ -135,7 +100,7 @@
 }
 
 /* separador entre productos dentro del body (ligero) */
-.menu-item + .menu-item {
+.menu-item {
   border-top: 1px solid var(--separator);
   padding-top: 0.7rem;
 }

@@ -1,28 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wdth,wght@0,50..125,100..900;1,50..125,100..900&display=swap');
+
+/* contenedor general del footer */
 .footer-container {
   width: 100%;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #464343; /* gris agradable */
+  background-color: #464343;  /* sección superior */
   color: #ffffff;
   text-align: center;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Saira', sans-serif;
+
+  /* esto hace que el footer ignore cualquier max-width del layout */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
 }
 
+/* sección superior */
 .footer-main {
-  padding-top: 2rem;
+  padding: 2.5rem 1rem 2rem 1rem;
 }
 
-.footer-icon {
-  font-size: 50px;
+/* ícono */
+.footer-main a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   margin-bottom: 1rem;
-  color: #ffffff;
-  transition: color 0.3s;
 }
 
-.footer-icon:hover {
-  color: #E79E4B; /* acento al pasar el mouse */
+.footer-main a svg {
+  color: white;
+}
+
+.footer-main a:hover svg {
+  transform: scale(1.15);
+  color: #ff8800;
 }
 
 .footer-contact,
@@ -31,11 +46,18 @@
   font-size: 1rem;
 }
 
+/* SEPARADOR entre secciones */
+.footer-separator {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255,255,255,0.22);
+  margin: 0;
+}
+
+/* sección inferior con otro color */
 .footer-bottom {
-  height: 80px;
-  background-color: #292626; /* gris un poco más oscuro */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #292626; /* como antes */
+  padding: 1.2rem 0;
   font-size: 0.9rem;
+  width: 100%;   /* asegura ancho total */
 }
